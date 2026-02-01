@@ -239,6 +239,59 @@
             border: 1px solid var(--border);
         }
 
+        /* Publications */
+        .publication-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .publication-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .publication-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .publication-title a:hover {
+            color: var(--accent);
+        }
+
+        .publication-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .publication-venue {
+            font-style: italic;
+        }
+
+        .publication-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+        }
+
         /* Footer */
         footer {
             padding: 3rem 0;
@@ -297,6 +350,7 @@
         section:nth-child(2) { animation-delay: 0.1s; }
         section:nth-child(3) { animation-delay: 0.2s; }
         section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
@@ -362,7 +416,7 @@
         <section id="experience">
             <div class="section-header">
                 <span class="section-number">03</span>
-                <h2>Experience</h2>
+                <h2>Experiences</h2>
             </div>
 
             <div class="experience-item">
@@ -395,6 +449,26 @@
                     <span class="tag">Drone</span>
                     <span class="tag">Aerial Manipulation</span>
                 </div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Publications</h2>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-type">Journal</div>
+                <h3 class="publication-title">
+                    <a href="https://doi.org/10.1299/transjsme.21-00016" target="_blank">重心位置調節機能を持つドローン用アームのキャリブレーション方法と空中での動作の評価</a>
+                </h3>
+                <p class="publication-meta">
+                    <strong>松永望</strong>、吉田大哲、島崎航平、妹尾拓、高木健<br>
+                    <span class="publication-venue">日本機械学会論文集 第87巻 第901号</span>,
+                    <span class="publication-year">2021</span>
+                    | <a href="https://www.jstage.jst.go.jp/article/transjsme/87/901/87_21-00016/_pdf/-char/ja" target="_blank" style="color: var(--accent); text-decoration: none;">PDF</a>
+                </p>
             </div>
         </section>
 
