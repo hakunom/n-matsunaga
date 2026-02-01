@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nozomu Matsunaga | FPGA Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #f0f0f2;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a72;
+            --accent: #0066cc;
+            --accent-dim: #0066cc12;
+            --border: #e0e0e8;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 6rem 0 4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .name {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .title {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .contact-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-number {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        /* About */
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .skill-list li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Experience */
+        .experience-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px rgba(0, 102, 204, 0.08);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .experience-company {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .experience-period {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .experience-role {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            header {
+                padding: 4rem 0 3rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-links {
+                flex-wrap: wrap;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header, section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1 class="name">Nozomu Matsunaga</h1>
+                    <p class="title">FPGA Engineer</p>
+                </div>
+                <div class="contact-links">
+                    <a href="https://github.com/hakunom" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/nozomu-matsunaga" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="about">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>About</h2>
+            </div>
+            <p class="about-text">
+                HPCアクセラレータ用のFPGA開発に従事するエンジニア。ハードウェアとソフトウェアの境界領域で高性能なシステム設計に取り組んでいます。
+            </p>
+        </section>
+
+        <section id="skills">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>FPGA Development</h3>
+                    <ul class="skill-list">
+                        <li>Intel Quartus Prime</li>
+                        <li>oneAPI DPC++/C++ Compiler</li>
+                        <li>Open FPGA Stack (OFS)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Video Engineering</h3>
+                    <ul class="skill-list">
+                        <li>GStreamer</li>
+                        <li>Real-time Streaming</li>
+                        <li>WebRTC</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Verilog / SystemVerilog</li>
+                        <li>SYCL / DPC++</li>
+                        <li>Python</li>
+                        <li>C/C++</li>
+                        <li>Linux / Docker</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Experience</h2>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-company">IBEX Technology Co., Ltd.</span>
+                    <span class="experience-period">2021 - Present</span>
+                </div>
+                <p class="experience-role">FPGA Developer</p>
+                <p class="experience-description">
+                    HPC向けFPGAアクセラレーションカードの開発に従事。Intel FPGAを用いたFIM、AFU、oneAPI対応システムの構築を担当。
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Intel FPGA</span>
+                    <span class="tag">oneAPI</span>
+                    <span class="tag">OFS</span>
+                    <span class="tag">Video Processing</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-company">Hiroshima University Smart Robotics Lab.</span>
+                    <span class="experience-period">2015 - 2021</span>
+                </div>
+                <p class="experience-role">Bachelor/Master</p>
+                <p class="experience-description">
+                    ロボットアームを搭載したドローンの、空中マニピュレーション制御について研究。
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Drone</span>
+                    <span class="tag">Aerial Manipulation</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">© 2025 Nozomu Matsunaga.</p>
+        </footer>
+    </div>
+</body>
+</html>
